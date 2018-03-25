@@ -7,7 +7,7 @@ package programma_scanningporttcp;
 
 /**
  *
- * @author loren
+ * @author Lorenzo Pisanò
  */
 public class Programma_ScanningPortTCP {
 
@@ -16,9 +16,11 @@ public class Programma_ScanningPortTCP {
      */
     public static void main(String[] args) {
         
+        //dichiaro e instanzio un oggetto della classe ScanningPort
         ScanningPort sp;
         sp = new ScanningPort();
         
+        //richiamo il metodo per il controllo delle porte
         sp.esegui();
     }
     
