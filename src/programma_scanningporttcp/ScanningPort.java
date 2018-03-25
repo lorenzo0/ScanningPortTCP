@@ -35,11 +35,17 @@ public class ScanningPort {
             
             do{
                 System.out.println("1: Scanning di una porta");
+                System.out.println("2: Scanning range di porte");
+                System.out.println("Fai la tua scelta: ");
                 dowhile=Integer.parseInt(br.readLine());
                 
                 if(dowhile == 1)
                 {
                     controlloPorta();
+                }
+                if(dowhile == 2)
+                {
+                    controlloRangePorte();
                 }
             }while (check != true);
         } catch (IOException ex) {
@@ -53,6 +59,27 @@ public class ScanningPort {
             System.out.println("Inserire la porta che si vuole controllare: ");
             port = Integer.parseInt(br.readLine());
             c1.ricavaSocket(port);
+        } catch (IOException ex) {
+            Logger.getLogger(ScanningPort.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void controlloRangePorte()
+    {
+        int ultimaPorta, sottrazione;
+        try {
+            System.out.println("Inserire la prima porta che si vuole controllare: ");
+            port = Integer.parseInt(br.readLine());
+            System.out.println("Inserire l'ultima porta che si vuole controllare: ");
+            ultimaPorta = Integer.parseInt(br.readLine());
+            sottrazione = ultimaPorta-port;
+            sottrazione++;
+            for(int i=0;i<sottrazione;i++)
+            {
+                System.out.println(i);
+                c1.ricavaSocket(port);
+                port++;
+            }
         } catch (IOException ex) {
             Logger.getLogger(ScanningPort.class.getName()).log(Level.SEVERE, null, ex);
         }
